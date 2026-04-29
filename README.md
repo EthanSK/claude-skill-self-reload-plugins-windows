@@ -2,7 +2,7 @@
 
 A Claude Code skill that lets Claude self-recover from MCP/plugin disconnects by dispatching `/reload-plugins` into the running Claude Code terminal session — without the user having to type it.
 
-This is the **Windows port** of the skill; the macOS version lives in [EthanSK/dot-claude](https://github.com/EthanSK/dot-claude) under `skills/self-reload-plugins/` and uses AppleScript to drive iTerm2 / Terminal.app / Ghostty / WezTerm / kitty / Alacritty.
+This is the **Windows port** of the skill. The **macOS standalone version** lives at [EthanSK/claude-skill-self-reload-plugins-mac](https://github.com/EthanSK/claude-skill-self-reload-plugins-mac) and uses AppleScript to drive iTerm2 / Terminal.app / Ghostty / WezTerm / kitty / Alacritty. The macOS version is also tracked in-monorepo at [EthanSK/dot-claude](https://github.com/EthanSK/dot-claude) under `skills/self-reload-plugins/`.
 
 ## How it works
 
@@ -60,7 +60,7 @@ NDJSON skill events (start, fallback, end, error) append to `~/.claude/logs/skil
 
 ## Mac vs Windows
 
-| | Mac (`EthanSK/dot-claude`) | Windows (this repo) |
+| | Mac (`EthanSK/claude-skill-self-reload-plugins-mac`) | Windows (this repo) |
 |-|-|-|
 | Window detection | AppleScript via `osascript`, with tty-match for iTerm2/WezTerm/kitty | PowerShell process-tree walk + `claude.exe` parent fallback |
 | Send keystroke | AppleScript `tell app "iTerm" to write text` (etc.) | Win32 `SetForegroundWindow` + `[System.Windows.Forms.SendKeys]::SendWait` |

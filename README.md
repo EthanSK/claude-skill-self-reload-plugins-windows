@@ -69,3 +69,7 @@ NDJSON skill events (start, fallback, end, error) append to `~/.claude/logs/skil
 ## License
 
 MIT — same as `EthanSK/dot-claude` and `EthanSK/dot-claude-dell`.
+
+## Weekly update checks
+
+The agent checks the configured public source on first skill use when a week has passed, using a shared local lease to avoid duplicate checks. It can install reviewed, compatible updates and tells you what changed; it preserves local edits and respects opt-outs. No background process is installed. Python 3 is needed for the date/lease helper; the skill can still be used without it. Copied installations need a trustworthy installation baseline; plugin installations use their host updater. See [the update procedure](references/public-updates.md).

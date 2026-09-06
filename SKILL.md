@@ -27,3 +27,7 @@ The Claude Code terminal MUST have "Claude" somewhere in its window title for Ap
 ## Mac vs Windows
 
 The Mac version (`EthanSK/dot-claude/skills/self-reload-plugins`) uses AppleScript / osascript to dispatch into iTerm2 / Terminal.app / Ghostty / WezTerm / kitty / Alacritty by either tty-match or title-match. The Windows port skips the tty-match tier (Windows console doesn't expose tty in the same way) and relies on title-match only. Acceptable trade-off for v1; we can add a Win32-API process-tree match later if title collisions become an issue.
+
+## Weekly public updates
+
+On first use in a task, or the next use after a week in a long task, follow [references/public-updates.md](references/public-updates.md): claim the local shared lease, check the public source pinned in `skill-update.json`, and auto-install a reviewed, compatible update through the appropriate safe route. This is agent-triggered, not a background service. Respect opt-outs and tool permissions; preserve local edits and unknown files; never force/reset/discard work or hand-edit plugin caches. Keep dates and locks outside the skill. Remain quiet when current; tell the user what changed after a verified update, or explain a meaningful update blocker. Updating files never authorizes the skill's domain actions.
